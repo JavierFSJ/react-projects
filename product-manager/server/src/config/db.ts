@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 
 type Config = {
-  server:   string;
-  user:     string;
+  server: string;
+  user: string;
   password: string;
   database: string;
 };
@@ -10,12 +10,12 @@ type Config = {
 class DbConnection {
   private db: Sequelize;
 
-  constructor(config : Config) {
-    const {server,  user, password, database} = config;
+  constructor(config: Config) {
+    const { server, user, password, database } = config;
     this.db = new Sequelize(database, user, password, {
       host: server,
       dialect: "mariadb",
-      models: [__dirname + '../models/**/*.ts']
+      models: [__dirname + "/../models/**/*.ts"],
     });
   }
 
